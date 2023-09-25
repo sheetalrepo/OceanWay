@@ -1,0 +1,4 @@
+DataToBeRun,Scenario,ScenarioDescription,Money
+no,alpha scenario,alpha desc,100
+yes,beta scenario,beta desc,200
+yes,charli scenario,charli desc,300

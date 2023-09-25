@@ -1,0 +1,106 @@
+#Equals Method:
+1. The obj who invokes equals(overridden case) method is actually passed into equals(calling obj)
+ e.g. CompareListOfObj.java
+2. We have to override equals and hashCode method together otherwise don't override
+
+
+
+
+
+#Internal working of ArrayList
+1. ArrayList has two overloaded method add(object) & add(int index, Object)
+2. Default add() method adds element at the end of AL, the other one at specified index
+3. Capacity:
+   List al = new ArrayList();  // Create space of 10
+   List al = new ArrayList(count);  // space of given count
+4. Dynamically grows
+   If AL is full and we added a new value. Then it create a new AL with more space.
+   inside .add() method we have a method ensureCapacity() which keep a watch on current AL size.
+      
+List<String> arrayList = new ArrayList<String>();   | Default Constructor with no arg get called with default capacity of 10 
+List<String> arrayList = new ArrayList<String>(30);  single arg const get called and empty al get created with given value
+List<String> arrayList = new ArrayList<String>(new LinkedList());  ArrayList(Collection<? extends E> c)  const get called and size depend upon given collection size	
+
+Q: How AL grow dynamically?
+Once size reach new AL get created which is 1.5x times than original i.e. 10 increased to 15
+Complete new space get allocated with increased space : Big Disadvantage
+AL stored in consecutive memory location
+
+      
+      
+      
+
+#LL
+1. LL is implemented using Double LL i.e. every node has ref of previous and next node
+2. LL element as not in consecutive memory locations
+3. Easy to add/remove element in between List
+4. LL has two constructor default and which takes collections
+
+# AL vs LL
+1. AL can define initial size but LL dont have any initial size; although by passing collections size can be defined
+2. AL is fast if working with given n nos of element
+3. LL can also be iterated in rev order using descendingIterator(), AL can't
+
+4. Adding a element: AL is fast, as LL has to traverse
+5. Adding element in first position : LL is fast, as AL need to shift every element
+6. Fetching element value: list.get(i) :  AL is fast
+7. Removing an element: LL is better
+
+*Most of the time we are using add(element) and get(element) in day to day life; and both these operations as fast in AL. Hence, AL is preferred than LL.
+
+
+
+
+
+#Internal working of HashSet
+1. HashSet implements HashMap Internally
+2. Whenever we call hs.add(), it calls hm.put("key",Object CONSTENT);
+3. As HashMap can store only unique Key, hence Set contains only unique Keys
+
+
+
+
+
+
+#Internal working of HashMap
+1. As per Key, Hashcode get calculated and Key get stored in respective Bucket ID.
+2. Within same Bucket ID, Linked List get implemented
+
+There is a table which grows 2^n. tables can be called as bucket arrays.
+Each bucket id contains list of nodes. Nodes is a LinkedList containing 4 section. <Key,Actual Hashcode,Value,Next node pointer>. |
+From Java 8 if nodes in same bucket id grows past min threshold (8) then linkedlist converted into tree structure for faster search. |
+In put/get operation first bucket id get calculated from actual hashcode
+(e.g 5) -> then actual hashcode get compared(e.g 5464737) ->
+if pass then equals performed on key (e.g. abc.equals(abc)) ->
+if pass then value returned
+
+
+
+# Tree Map
+1. TM based on Red Black Tree Algo
+2. Key of TM should have been Comparable i.e. if its a class like Employee then we need to implement Comparable
+3. In Red black, all small val is on left and big val is in right.
+
+
+
+# Compiler vs runtime
+Animal a = new Dog();
+a.bark();  // compiler error  |  Compiler always chk for ref obj and JVM runtime chk for whos obj is it
+(Dog)a.bark();  // no error
+
+
+
+# Polymorphism in List
+1. Dog[] can be passed into Animal[]
+2. List<Dog> can't be passed into List<Animal> ; will get compiler error
+3. To solve above problem we can use wild card; List<Dog> can be passed to List<? extends Animal> 
+
+
+# Interface:
+Interface obj can't call implementing classes methods due to security purposes
+Runnable r = new Mango();
+r.taste();   // compiler error
+r.run();
+
+
+      

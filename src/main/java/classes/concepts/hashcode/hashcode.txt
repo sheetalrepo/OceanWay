@@ -1,0 +1,20 @@
+#Thumb Rule:
+Always override hashcode and equals together else don't do it
+If hashcode is diff for two obj then obj cannot be equal in any case
+If hascode is same then two object may or may not be same 
+	>obj's equality depend upon overridden equals method
+	
+#Info:
+1. Hashcode is an integer referring to an object
+2. "Object.java" parent class in JDK has default behavior that 
+    every new object on heap will have different hashcode
+	,even if obj are from same class
+3. As obj from same class have diff HC means they can never be equals 
+    but in real time we want them to be equal if their values are same. 
+    Hence we override equals and give out condition inside it.
+	For ex. out of 10 values of obj if only 5 are matching then we can considered obj as equal		
+4. k:v always save as LinkedList under same bucketid i.e. hashcode
+5. before adding new element under same hashcode(bucket id), 
+   equals method called by old key on new key i.e. oldkey.equals(newkey)
+	if equals matches it will replace old value 
+	if not then new value added adjacent to old value as linked list

@@ -1,0 +1,14 @@
+# Java11
+1. Java 11 is main release after Java 8
+2. Java 11 is paid
+
+
+#Features:
+1. isBlank() method added to String class
+2. String read line method
+3. String strip method (trim)
+4. Files readString writeString
+5. var variable 
+
+Note: 
+Build path > Configure Build Path > library > Module > Java 11 need to setup

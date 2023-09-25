@@ -1,0 +1,5 @@
+soceityName,Scty-Age,Scty-Flat-Count,Scty-City
+RK Gold, 10, 1000, Pune
+RK Silver, 5, 500, Pune
+RK Platinum, 20, 2000, Pune
+RK Bronze, 3, 300, Pune

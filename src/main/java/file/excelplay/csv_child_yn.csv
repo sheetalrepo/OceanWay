@@ -1,0 +1,6 @@
+TestCaseToBeRun,Name,Description,Amount
+no,alpha,a-desc,100
+yes,beta,b-desc,200
+no,charli,c-desc,300
+yes,delta,d-desc,400
+yes,elly,e-desc,500

@@ -1,0 +1,6 @@
+# Feature intoduced in Java8
+
+1. default methods : method can have body
+2. static method : method with body with static keyword
+3. functional interface : interface with only one abstract method
+4. stream apis : stream(), parallelStream() method added in Collection interface  

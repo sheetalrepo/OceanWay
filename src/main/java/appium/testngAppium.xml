@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="GRID SAMPLE TEST" parallel="tests" thread-count="1">
+
+<test name="test 1">
+<parameter name ="browserType" value="android"/>
+	<classes>
+		<class name ="appium.AppiumTest"/>
+	</classes>
+</test>
+
+<!-- 
+
+<test name="test 2">
+<parameter name ="browserType" value="firefox"/>
+	<classes>
+		<class name ="grid.AppiumTest"/>
+	</classes>
+</test>
+
+ -->
+</suite>

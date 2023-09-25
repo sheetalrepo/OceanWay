@@ -1,0 +1,127 @@
+====================================================================
+			Code required for Interview
+====================================================================
+# imp java codes for coding #
+
+====================================================================
+#Scanner
+
+Q: To read complete line from cmd line:
+Scanner sc = new Scanner(System.in);
+String line = sc.nextLine();
+
+Q: To read next integer from input line:
+Scanner sc = new Scanner(System.in);
+int num = sc.nextInt();
+
+====================================================================
+# String to charArr to String
+
+#String to Char Array
+char [] chArr = str.toCharArray();
+Arrays.sort(chArr);
+
+#Char Array to String
+String word = String.copyValueOf(chArr)
+
+====================================================================
+# Arrays
+
+Q: Two array can be easily compared using:
+boolean b = Arrays.equals(arr1, arr2);
+
+====================================================================
+# Integer
+
+Q: To convert int to its binary form
+Integer.toBinaryString(10);    will print : 1010
+
+====================================================================
+# int to String to int
+
+#Str to int
+String str ="20";
+int i = Integer.parseInt(str);
+
+
+#int to Str (also can be used to cal length of int value)
+int i = 123;
+String str = String.valueOf(i);
+System.out.println(str.length());
+
+====================================================================
+# List to Array to List
+
+Q: Array -> AL
+A1: List<String> list = List.of("Hello", "World", "from", "Java");
+	List<Integer> list = List.of(1, 2, 3, 4, 5);
+
+A2: String [] arr = {"a","b","c"};
+   List<String> al = new ArrayList<String>(Arrays.asList(arr)); 
+   
+   
+   
+Q: AL -> Array
+List<String> al = List.of("Hello", "World", "from", "Java");
+
+String[] arr = new String[0]; //Array will grow dynamically if required, size need to be given else compilation error comes
+arr=al.toArray(arr); 
+  
+  
+====================================================================
+#List
+
+Q: How to make a list in different ways
+List<String> ls = Stream.of("a","b","c").collect(Collectors.toList());
+List<String> ls = List.of("Hello", "World", "from", "Java");
+
+
+Q: How to reverse a List
+List<String> ls = new ArrayList<>();   ["app","dap","nap"]
+Collections.reverse(ls);
+sysout (ls)   ["nap","dap","app"]
+
+Q: How to compare two List
+Collections.sort(list1)
+Collections.sort(list2)
+boolean isEqual = list1.equals(list2);
+
+Q: How can we create list as Synchronised? 
+A: List<type> synList = Collections.synchronizedList(listObj); 
+listObj can be AL or LL
+
+Q: Two lists can be easily compared using:
+boolean flag = list1.equals(list2);
+
+====================================================================
+#Map
+
+Q: map.containsKey("key") 
+A: return True or False. Useful in case of word or char count in String
+
+Q: Two maps can be easily compared using:
+boolean flag = map1.equals(map2);
+boolean flag = map1.entrySet().stream().allMatch(x -> x.getValue().equals(map2.get(x.getKey())));
+Note: allMatch can be replaced with anyMatch, noneMatch
+
+====================================================================
+# Java 8
+List<String> ls = List.of("ab","bb","cb","ddd","e");
+List<String> filteredList = ls.stream()
+				.filter(x -> x.length() > 2 )
+				.collect(Collectors.toList());
+System.out.println(filteredList);
+
+
+Map<String, String> map = new HashMap<>();
+		map.put("a", "apple");
+		map.put("b", "boy");
+		map.put("c", "cat");
+
+Map<String, String> mapNew = map.entrySet().stream()
+				.filter(x -> x.getValue().contains("a"))
+				.collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
+
+System.out.println(mapNew);
+
+====================================================================

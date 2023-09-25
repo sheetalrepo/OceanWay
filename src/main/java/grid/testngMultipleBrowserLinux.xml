@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="GRID SAMPLE TEST" parallel="tests" thread-count="6">
+	<test name="test 1">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>
+
+ 	<test name="test 2">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>
+	
+	
+ 	<test name="test 3">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test> 
+	
+	<test name="test 4">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>  
+	
+	<test name="test 5">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>  
+	
+	<test name="test 6">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test> 
+	
+<!-- 	 
+
+	<test name="test 7">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>
+
+ 	<test name="test 8">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>
+	
+	
+ 	<test name="test 9">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test> 
+	
+	<test name="test 10">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>  
+	
+	<test name="test 11">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>  
+	
+	<test name="test 12">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="grid.MultipleBrowserLinux" />
+		</classes>
+	</test>  
+	
+	
+ -->	
+</suite>
+
+
+<!-- 
+parallel="tests" thread-count="6"  | we mentioned to run 6 thread in parallel and each thread will pick one  <test name="test 1"> 
+whatever mentioned inside <test 1> will be run i.e. in this case we are running class hence all test caseses inside class will run be one thread
+ideally thread count should match with <test> tag so each picks one
+ -->

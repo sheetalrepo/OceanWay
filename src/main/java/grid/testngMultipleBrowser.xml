@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="GRID SAMPLE TEST" parallel="tests" thread-count="6">
+
+<test name="test 1">
+<parameter name ="browserType" value="firefox"/>
+	<classes>
+		<class name ="grid.MultipleBrowser"/>
+	</classes>
+</test>
+
+<test name="test 4">
+<parameter name ="browserType" value="firefox"/>
+	<classes>
+		<class name ="grid.MultipleBrowser"/>
+	</classes>
+</test>
+
+
+<test name="test 2">
+<parameter name ="browserType" value="chrome"/>
+	<classes>
+		<class name ="grid.MultipleBrowser"/>
+	</classes>
+</test>
+
+<test name="test 6">
+<parameter name ="browserType" value="chrome"/>
+	<classes>
+		<class name ="grid.MultipleBrowser"/>
+	</classes>
+</test>
+
+
+
+<test name="test 3">
+<parameter name ="browserType" value="ie"/>
+	<classes>
+		<class name ="grid.MultipleBrowser"/>
+	</classes>
+</test>
+
+<test name="test 7">
+<parameter name ="browserType" value="ie"/>
+	<classes>
+		<class name ="grid.MultipleBrowser"/>
+	</classes>
+</test>
+
+
+</suite>

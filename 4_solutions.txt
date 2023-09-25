@@ -1,0 +1,51 @@
+========== * ========== * ========== * ========== * ========== * ==========
+#General Small Solutions:
+========== * ========== * ========== * ========== * ========== * ==========
+
+
+Problem: How to read complex date from Json to POJO
+Sol:
+#In a API response foll k:v pair is coming and we need to fetch date
+"lgi:hh:date": "Thu, 26 Aug 2021 10:37:57 GMT"
+
+#Reading in POJO	
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
+
+@JsonProperty("lgi:hh:date")
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "E, d MMM yyyy HH:mm:ss Z")
+private Date lgiHHDate;
+========== * ========== * ========== * ========== * ========== * ==========
+
+
+Problem: Alternative to Thread.sleep()
+Sol: Instant.now().plusSeconds(1L)
+
+========== * ========== * ========== * ========== * ========== * ==========
+
+
+Problem: What if api response has 10 json fields and POJO has only 5 
+Sol: Add this tag on top of POJO
+@JsonIgnoreProperties(ignoreUnknown = true)
+not required in case pojo has 10 fields and response has 5 fields
+
+Single pojo can be used for any no. of response
+
+========== * ========== * ========== * ========== * ========== * ==========
+
+Problem 1: How to decode Base64 jwt token
+Problem 2: How to read some key value from JSON w/o using POJOs
+
+1)
+String base64EncodedHeader = jwtToken.split("\\.")[0];
+Base64.Decoder decoder = Base64.getUrlDecoder();
+String headerJson = new String(decoder.decode(base64EncodedHeader));
+System.out.println("JWT Header : " + headerJson);
+
+2)
+Map jsonJavaRootObject = new Gson().fromJson(headerJson, Map.class);
+String value = jsonJavaRootObject.get("key").toString();
+
+
+========== * ========== * ========== * ========== * ========== * ==========
