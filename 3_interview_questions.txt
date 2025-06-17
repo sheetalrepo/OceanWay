@@ -30,6 +30,25 @@ String word = String.copyValueOf(chArr)
 Q: Two array can be easily compared using:
 boolean b = Arrays.equals(arr1, arr2);
 
+
+Q: How to sort Arrays
+String[] arr = {"Charlie", "Alice", "Bob", "Eve", "David"};
+Arrays.sort(arr);
+
+
+Q: How to print Arrays
+Arrays.toString(arr)
+
+
+Q: How to search anything in Array
+String[] names = {"Charlie", "Alice", "Bob", "Eve", "David"};
+Arrays.sort(names); //IMP
+System.out.println(Arrays.binarySearch(names, "Bob"));     // 1  print index
+System.out.println(Arrays.binarySearch(names, "Abc"));     // -1  Not found
+
+Note: binary search always work on sorted arrays
+
+
 ====================================================================
 # Integer
 
@@ -53,12 +72,17 @@ System.out.println(str.length());
 # List to Array to List
 
 Q: Array -> AL
-A1: List<String> list = List.of("Hello", "World", "from", "Java");
-	List<Integer> list = List.of(1, 2, 3, 4, 5);
-
-A2: String [] arr = {"a","b","c"};
+A1: String [] arr = {"a","b","c"};
    List<String> al = new ArrayList<String>(Arrays.asList(arr)); 
    
+A2: List<String> list = List.of("Hello", "World", "from", "Java");
+	List<Integer> list = List.of(1, 2, 3, 4, 5);
+
+A3. String [] arr = {"a","b","c"};
+   	ArrayList<String> al = new ArrayList<String>();
+    Collections.addAll(al, arr);    // converting array into array list
+	Collections.sort(al);           // sorting Array List
+
    
    
 Q: AL -> Array
@@ -93,19 +117,75 @@ listObj can be AL or LL
 Q: Two lists can be easily compared using:
 boolean flag = list1.equals(list2);
 
+Q: Count word in a Sentence using Collection
+String [] arr = sentence.split(" ");
+List<String> ls = Arrays.asList(arr);
+int count = Collections.frequency(ls, "abc");
+
+		
+Q: Imp Collections functions
+Collections.frequency(ls, word);    //Word count in a sentence
+Collections.reverse(ls);            //Reverse a ls    
+Collections.sort(ls);               // Natural Sorting
+Collections.sort(ls, comparator);   // Custom Sorting    
+Collections.addAll(al, arr);        // Array to AL
+Collections.min(list);              // Finds smallest element
+Collections.max(list);              // Finds largest element
+Collections.synchronizedList(list); // Makes list thread-safe.
+
+
+
 ====================================================================
 #Map
 
-Q: map.containsKey("key") 
-A: return True or False. Useful in case of word or char count in String
+Q: How to check presence of key value in HM
+boolean flag1 = hm.containsKey("A");
+boolean flag2 = hm.containsValue("Apple");
+
+Q: How get value of a key in Map
+A: map.get(key)
+
+
+Q: How to iterate on map keys & values
+for (String key : map1.keySet()) {}
+for (String value : hm.values()) {}
+for(Map.Entry<String,String> entry:hm.entrySet()){
+	entry.getKey()
+	entry.getValue() 
+}
+
+
+Q: How to compare only keys in 2 HashMaps
+A: if (hashMap1.keySet().equals(hashMap2.keySet())) {}
+
 
 Q: Two maps can be easily compared using:
-boolean flag = map1.equals(map2);
+//map1 and map2 shd have exact same k:v pair
+boolean flag = map1.equals(map2);          
+
+//Works even if map2 has extra keys (it ignores those).
 boolean flag = map1.entrySet().stream().allMatch(x -> x.getValue().equals(map2.get(x.getKey())));
 Note: allMatch can be replaced with anyMatch, noneMatch
 
+
 ====================================================================
-# Java 8
+#Comprator:
+Best to use Comparator over Comparable 
+No need to touch base class 
+In one line objects can be easily compared in a List<Employee> or Employee[] arr
+e.g. SortStudent.java
+
+#List
+ls.sort(Comparator.comparing(x -> x.name));
+
+#Array
+Arrays.sort(arr, (x, y) -> x.getName() - y.getName());
+
+
+====================================================================
+#Java8 #Lambadas
+
+Q: How to filter a List using Lambdas
 List<String> ls = List.of("ab","bb","cb","ddd","e");
 List<String> filteredList = ls.stream()
 				.filter(x -> x.length() > 2 )
@@ -113,15 +193,58 @@ List<String> filteredList = ls.stream()
 System.out.println(filteredList);
 
 
+
+Q: How to filter a Map using Lambdas
 Map<String, String> map = new HashMap<>();
 		map.put("a", "apple");
 		map.put("b", "boy");
 		map.put("c", "cat");
-
+		
 Map<String, String> mapNew = map.entrySet().stream()
 				.filter(x -> x.getValue().contains("a"))
 				.collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
-
 System.out.println(mapNew);
+
+
+Q: How to modify existing list, no filtering
+List<String> modifiedList = ls.stream()
+		.map(x -> x.toUpperCase())
+		.collect(Collectors.toList());
+
+
+Q: How to club, modify or filter etc in case we have multiple lists
+List<String> capitals = Stream.of(list1,list2,list3)
+		.flatMap(ls -> ls.stream())     //flatMap: merge all list into one
+		.filter(x -> x.length() > 2 )   //filter
+		.map(x -> x.toUpperCase())      //modified it
+		.collect(Collectors.toList());  //collect it 
+
+
+Q: How to compare Maps using Streams & Lambadas
+Ideally, the left-side list2/map2 should be smaller, or at most equal in size to list1. 
+checking its presence in list1/map1 runs fewer iterations, improving efficiency.
+
+#List
+boolean allMatch = list2.stream().allMatch(x -> list1.contains(x));
+boolean allMatch = list2.stream().anyMatch(x -> list1.contains(x));
+boolean allMatch = list2.stream().noneMatch(x -> list1.contains(x));
+ 
+#Map 
+boolean allMatch = map2.entrySet().stream().allMatch(x -> x.getValue().equals(map1.get(x.getKey())));
+boolean anyMatch = map2.entrySet().stream().anyMatch(x -> x.getValue().equals(map1.get(x.getKey())));
+boolean noneMatch = map2.entrySet().stream().noneMatch(x -> x.getValue().equals(map1.get(x.getKey())));
+
+
+Q: How to use for each loop in Java8 
+ls.forEach(x -> System.out.println(x));
+ls.forEach(x -> {
+		    //mult line code    	
+	});
+	
+	
+====================================================================
+#Sorting Algo
+j_sorting > sorting_algo.txt
+
 
 ====================================================================

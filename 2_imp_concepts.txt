@@ -1,3 +1,8 @@
+OM
+======================================================================================================
+======================================================================================================
+### IMP CONCEPTS OF JAVA ###
+======================================================================================================
 #Equals Method:
 1. The obj who invokes equals(overridden case) method is actually passed into equals(calling obj)
  e.g. CompareListOfObj.java
@@ -6,7 +11,7 @@
 
 
 
-
+======================================================================================================
 #Internal working of ArrayList
 1. ArrayList has two overloaded method add(object) & add(int index, Object)
 2. Default add() method adds element at the end of AL, the other one at specified index
@@ -29,15 +34,15 @@ AL stored in consecutive memory location
       
       
       
-
+======================================================================================================
 #LL
 1. LL is implemented using Double LL i.e. every node has ref of previous and next node
 2. LL element as not in consecutive memory locations
 3. Easy to add/remove element in between List
-4. LL has two constructor default and which takes collections
+4. LL has two constructor default and which takes b_collections
 
 # AL vs LL
-1. AL can define initial size but LL dont have any initial size; although by passing collections size can be defined
+1. AL can define initial size but LL dont have any initial size; although by passing b_collections size can be defined
 2. AL is fast if working with given n nos of element
 3. LL can also be iterated in rev order using descendingIterator(), AL can't
 
@@ -51,7 +56,7 @@ AL stored in consecutive memory location
 
 
 
-
+======================================================================================================
 #Internal working of HashSet
 1. HashSet implements HashMap Internally
 2. Whenever we call hs.add(), it calls hm.put("key",Object CONSTENT);
@@ -61,7 +66,7 @@ AL stored in consecutive memory location
 
 
 
-
+======================================================================================================
 #Internal working of HashMap
 1. As per Key, Hashcode get calculated and Key get stored in respective Bucket ID.
 2. Within same Bucket ID, Linked List get implemented
@@ -76,31 +81,149 @@ if pass then value returned
 
 
 
-# Tree Map
+
+
+======================================================================================================
+#Tree Map
 1. TM based on Red Black Tree Algo
 2. Key of TM should have been Comparable i.e. if its a class like Employee then we need to implement Comparable
 3. In Red black, all small val is on left and big val is in right.
 
 
-
-# Compiler vs runtime
+======================================================================================================
+#Compiler vs runtime
 Animal a = new Dog();
 a.bark();  // compiler error  |  Compiler always chk for ref obj and JVM runtime chk for whos obj is it
 (Dog)a.bark();  // no error
 
 
 
-# Polymorphism in List
+
+======================================================================================================
+#Polymorphism in List
 1. Dog[] can be passed into Animal[]
 2. List<Dog> can't be passed into List<Animal> ; will get compiler error
 3. To solve above problem we can use wild card; List<Dog> can be passed to List<? extends Animal> 
 
 
-# Interface:
-Interface obj can't call implementing classes methods due to security purposes
+
+======================================================================================================
+#Interface:
+Interface obj can't call implementing a_classes methods due to security purposes
 Runnable r = new Mango();
 r.taste();   // compiler error
 r.run();
 
 
-      
+======================================================================================================
+#String is Immutable. Why
+In Java, String is immutable, meaning once a String object is created, its value cannot be changed. 
+If any modification is needed, Java creates a new String object, rather than altering the original one.
+
+Why is String Immutable?
+✅ Security → Used in authentication, caching, and networking. 
+✅ Performance Optimization → Helps in String pooling (reuse of stored strings). 
+✅ Thread Safety → Multiple threads can use the same String without synchronization issues.  
+
+String str = "Hello";
+str = str + " World";  // Creates a new String object, doesn't modify 'Hello'    
+
+
+
+======================================================================================================
+#StringBuilder vs StringBuffer : Both are Mutable
+Both StringBuilder and StringBuffer are used for mutable string manipulation, 
+meaning they allow modifications without creating new objects like String. 
+The main difference lies in thread safety
+
+1. StringBuilder
+    - Use StringBuilder → For fast, single-threaded applications.
+    - Not thread safe, best to use in single thread operation
+
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World");        // Modifies the same object
+System.out.println(sb);     // Output: Hello World
+
+2. StringBuffer
+    - Use StringBuffer → For multi-threaded environments where multiple threads modify the same string.
+    - Slower
+
+StringBuffer sb = new StringBuffer("Hello");
+sb.append(" World");        // Safe for multiple threads
+System.out.println(sb);     // Output: Hello World
+
+
+
+======================================================================================================
+#HAS-A vs IS-A Relation:
+
+HAS-A Relationship
+Aggregation: One class contains another, but both can exist independently. 
+        Example: A Bank HAS-A Customer, but a customer exists even if the bank is gone.
+Composition: Stronger relationship where one class depends on another. 
+        Example: A Car HAS-A Engine, but if the car is destroyed, the engine does not exist separately.
+
+IS-A Relationship (Inheritance)
+        Represents "is a type of" hierarchy using extends. Example: A Dog IS-A Animal, since Dog inherits from Animal.
+
+
+
+======================================================================================================
+Pass By Reference vs Pass By Value
+
+ * ✅ Primitives → Pass by value (No effect on original variable). 
+ * ✅ Objects → Pass by reference value (Changes reflect on original object).
+Trick: 
+PV  (Primitive as Pass by Value i.e. duplicate copied value, original not changed)
+OR  (Obj are pass by Reference)
+
+
+
+
+======================================================================================================
+#List Set Maps
+
+1. List (Ordered, Allows Duplicates)
+Class	    Ordered?	Sorted?	    Characteristics
+ArrayList	✅ Yes	    ❌ No	    Fast random access, resizable array
+LinkedList	✅ Yes	    ❌ No	    Doubly linked list, good for insertion/removal
+Vector	    ✅ Yes	    ❌ No	    Like ArrayList, but synchronized
+Stack	    ✅ Yes	    ❌ No	    LIFO (Last In First Out) behavior
+
+
+2. Set (Unique Elements, No Duplicates)
+Class	        Ordered?	Sorted?	    Characteristics
+HashSet	        ❌ No	    ❌ No	    Fast lookup, hash-based
+LinkedHashSet	✅ Yes	    ❌ No	    Maintains insertion order
+TreeSet	        ✅ Yes	    ✅ Yes	    Sorted in natural order (or via Comparator)
+
+
+3. Map (Key-Value Pairs)
+Class	        Ordered?	Sorted?	    Characteristics
+HashMap	        ❌ No	    ❌ No	    Fast key-value lookup, hash-based
+LinkedHashMap	✅ Yes   	❌ No	    Maintains insertion order
+TreeMap	        ✅ Yes   	✅ Yes	    Sorted by keys in natural/comparator order
+Hashtable	    ✅ Yes	    ❌ No	    Synchronized, legacy alternative to HashMap
+
+
+
+======================================================================================================
+Diff between == and equals
+
+1. == (Reference Comparison)
+✅ Compares memory addresses, not actual values.
+✅ Used for primitive types (int, char, etc.).
+❌ For objects, it checks if both references point to the same object in memory.
+Use == for primitive types or checking if two references point to the same object
+
+2. .equals() (Content Comparison)
+✅ Compares actual values of objects (if overridden).
+✅ Used for string, custom objects, and collections.
+❌ If not overridden, it behaves like == (default in Object class).
+Use .equals() when comparing actual content, especially for Strings or objects
+
+String str1 = new String("Hello");
+String str2 = new String("Hello");
+System.out.println(str1 == str2);       // ❌ false (Different memory locations)
+System.out.println(str1.equals(str2));  // ✅ true (Same content)
+

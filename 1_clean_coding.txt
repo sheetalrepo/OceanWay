@@ -25,3 +25,24 @@ todo: https://www.codingdojo.com/blog/clean-code-techniques
   
 9. Use Instant.now().plusSeconds(1L) rather Thread.sleep()
 
+#Priciples:
+1️⃣ DRY (Don't Repeat Yourself) → Avoid duplication by reusing code efficiently. 
+2️⃣ KISS (Keep It Simple, Stupid) → Write clear, concise, and maintainable code. 
+3️⃣ SOLID → Five principles for object-oriented design
+    Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion. 
+4️⃣ RASP (Robust, Agile, Scalable, Performant) → Ensure your code is fault-tolerant, adaptable, efficient, and optimized for performance. 
+5️⃣ Don't Reinvent the Wheel → Use existing libraries and frameworks instead of building from scratch.
+5️⃣ SMART Goal
+    Specific → Clearly define what you want to achieve.
+    Measurable → Include criteria to track progress.
+    Achievable → Set a realistic and attainable goal.
+    Relevant → Ensure it aligns with broader objectives.
+    Time-bound → Set a deadline for completion.
+
+
+#Why Clean Code
+1. Majority of the work is of Maintenance
+2. Team spent more time reading code rather writing
+3. Fixing cost more than writing
+4. Teams prefer to write own code rather modifying 
+5. Prod Bugs
