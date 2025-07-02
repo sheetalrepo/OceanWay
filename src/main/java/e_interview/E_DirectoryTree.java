@@ -1,7 +1,7 @@
 package e_interview;
 
 /**
- * Psuedo Code Only:
+ * Pseudo Code Only:
  * You need to print all entries in a directory tree, but in two different ways:
  * 	1. First-Level Directory → Only display files and directories in the top level.
  * 	2. Full Directory Tree → Display all files and directories recursively, no matter how deep the structure goes.
@@ -30,8 +30,8 @@ public class E_DirectoryTree {
 	{
 		entries = list_dir(startingDirName)  // Get list of files & directories
 
-		for entry in entries
-		  print(entry)  // Print each file and directory name
+		for(e : entries)
+		  print(e)  // Print each file and directory name
 	}
 
 
@@ -39,11 +39,11 @@ public class E_DirectoryTree {
 	{
 		entries = list_dir(startingDirName)  // Get all entries
 
-		for entry in entries
-		   print(entry)  // Print entry name
+		for (e in entries)
+		   print(e)  // Print entry name
 
-		   if is_dir(entry)  // If entry is a directory, recursively process it
-		       printDirectoryTree(entry)
+		   if is_dir(e)  // If entry is a directory, recursively process it
+		       printDirectoryTree(e)
 	}
 */
 }

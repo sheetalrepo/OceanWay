@@ -36,12 +36,14 @@ public class A_CharOccurrence {
 
 	/**
 	 * All char will be treated differently
-	 *
+	 * IMP: char[] NOT REQUIRED. Directly use STRING.charAt()
+	 * 
 	 * input: aaabbcccaa
 	 * output: a3b2c3a2
 	 */
 	public void printAllCharOccurrencesCount2(String str){
 		System.out.println("\n\n### Puzzel 2:");
+		System.out.println("Given String: "+ str);
 		StringBuilder sb = new StringBuilder();
 		int count = 1;     // IMP: count will be 1
 
@@ -63,8 +65,8 @@ public class A_CharOccurrence {
 
 	public static void main(String[] args) {
 		A_CharOccurrence obj = new A_CharOccurrence();
-		obj.printAllCharOccurrencesCount("aaabbcccaa");	   //a5b2c3	
-		obj.printAllCharOccurrencesCount2("aaabbcccaa");    //a3b2c3a2
+		//obj.printAllCharOccurrencesCount("aaabbcccaa");	   //a5b2c3	
+		obj.printAllCharOccurrencesCount2("aaabbccca");    //a3b2c3a1
 	}
 
 }
